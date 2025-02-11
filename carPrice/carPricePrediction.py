@@ -31,9 +31,8 @@ print(df.tail(10))
 import matplotlib.pyplot as plt
 
 plt.bar(df['horsepower'],df['highwaympg'])
-
+plt.title('horsepower vs highwaympg')
 plt.xlabel('horsepower')
-
 plt.ylabel('highwaympg')
 
 plt.show()
@@ -42,8 +41,8 @@ plt.show()
 import matplotlib.pyplot as plt
 
 plt.pie(df['fueltype'].value_counts(), labels=df['fueltype'].value_counts().index)
+plt.title('fueltype distribution')
 plt.xlabel('fueltype')
-
 plt.ylabel('count')
 
 plt.show()
@@ -52,7 +51,7 @@ plt.show()
 #histogram
 
 plt.hist(df['horsepower'])
-
+plt.title('horsepower distribution')
 plt.xlabel('horsepower')
 
 plt.show()
@@ -60,9 +59,8 @@ plt.show()
 #line chart
 
 plt.plot(df['citympg'],df['highwaympg'])
-
+plt.title('citympg vs highwaympg')
 plt.xlabel('citympg')
-
 plt.ylabel('highwaympg')
 
 plt.show()
@@ -96,6 +94,35 @@ print('Mean Squared Error:', mse)
 #visualize the model
 plt.scatter(x_test, y_test, color='blue')
 plt.plot(x_test, y_pred, color='red')
+plt.title('horsepower vs highwaympg')
 plt.xlabel('horsepower')
 plt.ylabel('highwaympg')
 plt.show()
+
+#number to float
+
+# df['horsepower'] = pd.to_numeric(df['horsepower'], errors='coerce')
+
+# #astype string
+# df['seats']=df['seats'].astype(str)
+
+#summarising and then visualising the graph
+
+# df['seats'].value_counts().plot(kind='bar')
+# #heading 
+# plt.title('seats distribution')
+# plt.xlabel('seats')
+# plt.ylabel('count')
+
+# plt.show()
+
+
+#correlation heatmap
+
+import seaborn as sns
+
+sns.heatmap(df.corr(), annot=True)
+
+plt.show()
+
+
